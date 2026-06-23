@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Local Community Event Portal</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+
+    <header id="mainHeader">
+        <h1 style="color:red;">Local Community Event Portal</h1>
+
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#events">Events</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#register">Register</a></li>
+                <li><a href="#feedbackSection">Feedback</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="help.html" target="_blank">Help</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main -->
+
+    <main>
+
+        <section id="home">
+
+            <div id="welcomeBanner">
+                Welcome to the Community Portal
+
+                <span style="color:red;font-weight:bold;">
+                    Special Offer: Free Entry for First 50 Registrations!
+                </span>
+            </div>
+
+            <p class="highlight">
+                Discover exciting events happening in your community.
+            </p>
+
+        </section>
+
+        <section id="events">
+
+            <h2>Upcoming Events</h2>
+
+            <div id="eventContainer"></div>
+
+            <div class="eventCard">
+                <h3>Music Festival</h3>
+                <p>Date: 25 July 2026</p>
+            </div>
+
+            <div class="eventCard">
+                <h3>Food Fair</h3>
+                <p>Date: 28 July 2026</p>
+            </div>
+
+            <div class="eventCard">
+                <h3>Art Exhibition</h3>
+                <p>Date: 30 July 2026</p>
+            </div>
+
+        </section>
+
+        <section id="gallery">
+
+            <h2>Event Gallery</h2>
+
+            <table>
+
+                <tr>
+
+                    <td>
+                        <img src="https://thfvnext.bing.com/th/id/OIP.r3r9HbmrnF-d_vJwn8bFuwHaFn?w=239&h=181&c=7&r=0&o=7&cb=thfvnextfalcon2&dpr=2&pid=1.7&rm=3"
+                            alt="Music Event"
+                            title="Music Event"
+                            class="gallery">
+                        <p>Music Festival</p>
+                    </td>
+
+                    <td>
+                        <img src="https://thfvnext.bing.com/th/id/OIP.kADps5DAy8inoUTQA5MrRwHaFc?w=242&h=180&c=7&r=0&o=7&cb=thfvnextfalcon2&dpr=2&pid=1.7&rm=3"
+                            alt="Food Fair"
+                            title="Food Fair"
+                            class="gallery">
+                        <p>Food Fair</p>
+                    </td>
+
+                    <td>
+                        <img src="https://picsum.photos/200?3"
+                            alt="Workshop"
+                            title="Workshop"
+                            class="gallery">
+                        <p>Workshop</p>
+                    </td>
+
+                </tr>
+
+                <tr>
+
+                    <td>
+                        <img src="https://picsum.photos/200?4"
+                            alt="Sports"
+                            title="Sports"
+                            class="gallery">
+                        <p>Sports Meet</p>
+                    </td>
+
+                    <td>
+                        <img src="https://picsum.photos/200?5"
+                            alt="Charity"
+                            title="Charity"
+                            class="gallery">
+                        <p>Charity Run</p>
+                    </td>
+
+                    <td>
+                        <img src="https://picsum.photos/200?6"
+                            alt="Art"
+                            title="Art Exhibition"
+                            class="gallery"
+                            id="eventImage"
+                            ondblclick="enlargeImage()">
+                        <p>Art Exhibition</p>
+                    </td>
+
+                </tr>
+
+            </table>
+
+        </section>
+
+        <section id="register">
+
+            <h2>Event Registration</h2>
+
+            <form id="registrationForm">
+
+                <input type="text"
+                    id="name"
+                    placeholder="Enter Name"
+                    required
+                    autofocus
+                    onchange ="">
+
+                <input type="email"
+                    id="email"
+                    placeholder="Enter Email"
+                    required>
+
+                <input type="date"
+                    id="eventDate"
+                    required>
+
+                <input type="text"
+                    id="phone"
+                    placeholder="Enter Phone Number"
+                    onblur="validatePhone()">
+
+                <select id="eventType" onchange="showFee()">
+
+                    <option value="Music Festival">Music Festival</option>
+
+                    <option value="Workshop">Workshop</option>
+
+                    <option value="Food Fair">Food Fair</option>
+
+                    <option value="Sports Meet">Sports Meet</option>
+
+                </select>
+
+                <p id="eventFee"></p>
+
+                <textarea id="message"
+                    placeholder="Enter Message"></textarea>
+
+                <button type="submit"
+                    onclick="confirmRegistration()">
+                    Register
+                </button>
+
+                <output id="outputMessage"></output>
+
+            </form>
+
+        </section>
+
+        <section id="feedbackSection">
+
+            <h2>Feedback</h2>
+
+            <textarea id="feedback"
+                placeholder="Enter Feedback"
+                onkeyup="countCharacters()"></textarea>
+
+            <p>Character Count:
+                <span id="charCount">0</span>
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Promo Video</h2>
+
+            <video width="500"
+                controls
+                oncanplay="videoReady()">
+
+                <source src="videos/promo.mp4"
+                    type="video/mp4">
+
+            </video>
+
+            <p id="videoStatus"></p>
+
+        </section>
+
+        <section>
+
+            <h2>Save Preferences</h2>
+
+            <button onclick="savePreference()">
+                Save Event Preference
+            </button>
+
+            <button onclick="clearPreferences()">
+                Clear Preferences
+            </button>
+
+        </section>
+
+        <section>
+
+            <h2>Nearby Events</h2>
+
+            <button onclick="findLocation()">
+                Find Nearby Events
+            </button>
+
+            <p id="location"></p>
+
+        </section>
+
+        <section>
+
+            <h2>Community News</h2>
+
+            <div class="news">
+                Community activities continue to grow rapidly. Residents can participate in
+                sports events, workshops, educational seminars, food festivals and social
+                gatherings. The city council encourages all residents to register early.
+                Community activities continue to grow rapidly. Residents can participate in
+                sports events, workshops, educational seminars, food festivals and social
+                gatherings. The city council encourages all residents to register early.
+            </div>
+
+        </section>
+
+        <section id="contact">
+
+            <h2>Contact</h2>
+
+            <p>Email: community@cityportal.com</p>
+
+            <p>Phone: 9876543210</p>
+
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+
+    <footer>
+
+        <p>
+            © 2026 Local Community Event Portal
+        </p>
+
+    </footer>
+
+    <script src="main.js"></script>
+
+</body>
+
+</html>

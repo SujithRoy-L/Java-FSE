@@ -1,0 +1,117 @@
+/* Universal Selector */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+/* Import Font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+body{
+    font-family:'Roboto',sans-serif;
+    background:#f4f4f4 url("bg.jpg") no-repeat center;
+}
+
+/* Navigation */
+nav ul{
+    list-style:none;
+    background:#333;
+    padding:10px;
+}
+
+nav li{
+    display:inline;
+    margin:10px;
+}
+
+nav a:link{
+    color:rgb(225, 22, 22);
+}
+
+nav a:hover{
+    color:yellow;
+}
+
+nav a:visited{
+    color:lightgray;
+}
+
+nav a:active{
+    color:red;
+}
+
+/* Element Selector */
+h2{
+    color:#0056b3;
+}
+
+/* Class Selector */
+.eventCard{
+    border:1px solid #ccc;
+    padding:15px;
+    margin:15px;
+}
+
+/* Group Selector */
+h3, p{
+    line-height:1.6;
+}
+
+/* Gradient Header */
+section h2{
+    background:linear-gradient(to right,#007bff,#00c6ff);
+    color:white;
+    padding:10px;
+}
+
+/* Highlight */
+.highlight{
+    background:yellow;
+}
+
+/* Images */
+.gallery-img{
+    width:150px;
+    border:2px solid black;
+}
+
+/* Table Styling */
+table{
+    width:100%;
+    border-collapse:collapse;
+    text-align:center;
+}
+
+th,td{
+    border:1px solid black;
+    padding:10px;
+}
+
+tr:nth-child(even){
+    background:#f2f2f2;
+}
+
+/* Multi Column */
+.news{
+    column-count:2;
+    column-gap:30px;
+    column-rule:1px solid gray;
+}
+
+/* Responsive Design */
+@media screen and (max-width:768px){
+
+    nav li{
+        display:block;
+        margin:5px;
+    }
+
+    body{
+        font-size:14px;
+    }
+
+    img{
+        width:100%;
+    }
+}

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Community Event Portal</title>
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* Internal CSS */
+        body {
+            background-color: #f4f4f4;
+        }
+
+        #welcomeBanner {
+            background-color: blue;
+            color: white;
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav>
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#events">Events</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<!-- Welcome Banner -->
+<div id="welcomeBanner">
+    Welcome to Community Events Portal
+    <span style="color:red;font-weight:bold;">
+        Special Offer!
+    </span>
+</div>
+
+<!-- Main -->
+<section id="home">
+    <h1 style="color:red;">Community Portal</h1>
+    <p class="highlight">Stay connected with local events.</p>
+</section>
+
+<section id="events">
+    <h2>Upcoming Events</h2>
+
+    <!-- Image Gallery -->
+    <table>
+        <tr>
+            <td>
+                <img src="event1.jpg" alt="Event1" title="Music Fest" class="gallery-img">
+                <p>Music Fest</p>
+            </td>
+            <td>
+                <img src="event2.jpg" alt="Event2" title="Food Fair" class="gallery-img">
+                <p>Food Fair</p>
+            </td>
+            <td>
+                <img src="event3.jpg" alt="Event3" title="Sports Day" class="gallery-img">
+                <p>Sports Day</p>
+            </td>
+        </tr>
+    </table>
+
+    <!-- Registration Form -->
+    <form onsubmit="showMessage(); return false;">
+        <input type="text" placeholder="Name" required autofocus><br><br>
+
+        <input type="email" placeholder="Email" required><br><br>
+
+        <input type="date" required><br><br>
+
+        <select id="eventType" onchange="showFee()">
+            <option value="">Select Event</option>
+            <option value="100">Music Fest</option>
+            <option value="200">Food Fair</option>
+        </select>
+
+        <p id="fee"></p>
+
+        <textarea id="feedback"
+                  placeholder="Feedback"
+                  onkeyup="countChars()"></textarea>
+
+        <p>Characters: <span id="count">0</span></p>
+
+        <button type="submit">Register</button>
+
+        <output id="msg"></output>
+    </form>
+
+    <!-- Video -->
+    <video width="400" controls
+           oncanplay="alert('Video ready to play')">
+        <source src="promo.mp4" type="video/mp4">
+    </video>
+</section>
+
+<!-- Footer -->
+<footer id="contact">
+    <p>Contact Us</p>
+</footer>
+
+<script>
+function showFee() {
+    let fee = document.getElementById("eventType").value;
+    document.getElementById("fee").innerHTML =
+        "Fee: ₹" + fee;
+}
+
+function countChars() {
+    document.getElementById("count").innerHTML =
+        document.getElementById("feedback").value.length;
+}
+
+function showMessage() {
+    document.getElementById("msg").value =
+        "Registration Successful!";
+}
+
+window.onbeforeunload = function() {
+    return "Are you sure you want to leave?";
+};
+</script>
+
+</body>
+</html>
