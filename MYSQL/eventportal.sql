@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `eventportal` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `eventportal`;
 -- MySQL dump 10.13  Distrib 8.0.46, for Win64 (x86_64)
 --
 -- Host: localhost    Database: eventportal
@@ -196,6 +198,14 @@ LOCK TABLES `users` WRITE;
 INSERT INTO `users` VALUES (1,'Alice Johnson','alice@example.com','New York','2024-12-01'),(2,'Bob Smith','bob@example.com','Los Angeles','2024-12-05'),(3,'Charlie Lee','charlie@example.com','Chicago','2024-12-10'),(4,'Diana King','diana@example.com','New York','2025-01-15'),(5,'Ethan Hunt','ethan@example.com','Los Angeles','2025-02-01');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Dumping events for database 'eventportal'
+--
+
+--
+-- Dumping routines for database 'eventportal'
+--
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -206,4 +216,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-06-23 11:34:43
+-- Dump completed on 2026-06-23 11:39:32
